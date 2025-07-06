@@ -1,0 +1,46 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  class?: string;
+  format?: 'webp' | 'avif' | 'jpeg' | 'png';
+  quality?: number;
+  loading?: 'eager' | 'lazy';
+}
+
+const { 
+  src, 
+  alt, 
+  width = 300, 
+  height = 200, 
+  class: className = '',
+  format = 'webp',
+  quality = 85,
+  loading = 'lazy'
+} = Astro.props;
+
+// This component will handle dynamic image imports
+// For now, we'll use a fallback approach
+const imageSrc = src.startsWith('@images/') ? src.replace('@images/', '/src/images/') : src;
+---
+
+<img 
+  src={imageSrc}
+  alt={alt}
+  class={className}
+  width={width}
+  height={height}
+  loading={loading}
+  style="object-fit: cover;"
+/>
+
+<style>
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>

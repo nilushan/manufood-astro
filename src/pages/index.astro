@@ -1,0 +1,193 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Features from '../components/Features.astro';
+import Gallery from '../components/Gallery.astro';
+import PickupDate from '../components/PickupDate.astro';
+import OrderForm from '../components/OrderForm.jsx';
+import HowToOrder from '../components/HowToOrder.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="MaNu Foods - Authentic Sri Lankan Home Cooked Meals">
+  <Header />
+  <main id="main-content">
+    <Hero />
+    <Features />
+    <Gallery />
+    <PickupDate />
+    <OrderForm client:load />
+    <HowToOrder />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .order-section {
+    background-color: #f9fafb;
+    padding: 4rem 0;
+  }
+  
+  .order-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .order-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: #374151;
+  }
+  
+  .category-section {
+    margin-bottom: 2rem;
+  }
+  
+  .category-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #374151;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f97316;
+  }
+  
+  .items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    transition: border-color 0.2s;
+  }
+  
+  .item-row:hover {
+    border-color: #f97316;
+  }
+  
+  .item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .item-name {
+    font-weight: 500;
+    color: #374151;
+  }
+  
+  .item-price {
+    color: #16a34a;
+    font-weight: 600;
+  }
+  
+  .quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .quantity-btn {
+    background-color: #f97316;
+    color: white;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+  }
+  
+  .quantity-btn:hover {
+    background-color: #ea580c;
+  }
+  
+  .quantity-input {
+    width: 60px;
+    text-align: center;
+    border: 1px solid #d1d5db;
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+    font-size: 1rem;
+  }
+  
+  .order-footer {
+    border-top: 2px solid #f3f4f6;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
+  .total-section {
+    margin-bottom: 1.5rem;
+  }
+  
+  .total-label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #374151;
+  }
+  
+  .total-amount {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #16a34a;
+  }
+  
+  .order-btn {
+    background-color: #16a34a;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-bottom: 1rem;
+  }
+  
+  .order-btn:hover {
+    background-color: #15803d;
+  }
+  
+  .order-note {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .item-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    
+    .quantity-control {
+      align-self: flex-end;
+    }
+    
+    .order-card {
+      padding: 1.5rem;
+    }
+  }
+</style>
+</BaseLayout>

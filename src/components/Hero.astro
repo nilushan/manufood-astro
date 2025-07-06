@@ -1,0 +1,85 @@
+---
+import { Image } from 'astro:assets';
+import siteData from '../content/site.json';
+import { images } from '../lib/images';
+---
+
+<section class="hero-section">
+  <div class="container mx-auto px-4 text-center">
+    <h1 class="hero-title">{siteData.name}</h1>
+    <p class="hero-subtitle">{siteData.tagline}</p>
+    
+    <!-- Food Image -->
+    <div class="hero-image-container">
+      <Image 
+        src={images['hero-food']}
+        alt="Authentic Sri Lankan food spread with rice, curries, and side dishes"
+        class="hero-image"
+        width={800}
+        height={600}
+        format="webp"
+        quality={90}
+        loading="eager"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    background: linear-gradient(135deg, #f97316, #fb923c);
+    color: white;
+    padding: 8rem 0 4rem;
+    margin-top: 4rem; /* Account for fixed header */
+  }
+  
+  .hero-title {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+  
+  .hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-image-container {
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  }
+  
+  .hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  @media (max-width: 768px) {
+    .hero-section {
+      padding: 6rem 0 2rem;
+    }
+    
+    .hero-title {
+      font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .hero-image-container {
+      max-width: 100%;
+      margin: 0 1rem;
+    }
+  }
+</style>

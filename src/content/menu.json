@@ -1,0 +1,76 @@
+{
+  "nextPickupDate": {
+    "date": "29",
+    "month": "March 2025",
+    "location": "Parks Estate, Yarrabilba, QLD",
+    "orderBefore": "26th March",
+    "pickupTime": "After 3:00 PM"
+  },
+  "menu": {
+    "categories": [
+      {
+        "name": "VEGETABLE",
+        "items": [
+          {
+            "name": "Dhal curry",
+            "price": 10
+          },
+          {
+            "name": "Passion fruit leave mallum",
+            "price": 12
+          },
+          {
+            "name": "Brinjol moju",
+            "price": 15
+          },
+          {
+            "name": "Carrot curry",
+            "price": 15
+          },
+          {
+            "name": "Leak temp",
+            "price": 15
+          }
+        ]
+      },
+      {
+        "name": "MEAT",
+        "items": [
+          {
+            "name": "Beef with potato curry",
+            "price": 18
+          },
+          {
+            "name": "Prawns temp",
+            "price": 22
+          },
+          {
+            "name": "Blue Mackerel fish curry",
+            "price": 20
+          }
+        ]
+      },
+      {
+        "name": "SPECIALS",
+        "items": [
+          {
+            "name": "Kottu beef",
+            "price": 25
+          },
+          {
+            "name": "Kottu chicken",
+            "price": 22
+          },
+          {
+            "name": "Mixed fried rice",
+            "price": 20
+          },
+          {
+            "name": "Tuna fish rotti (1 piece)",
+            "price": 4
+          }
+        ]
+      }
+    ]
+  }
+}

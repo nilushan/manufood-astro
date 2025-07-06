@@ -1,0 +1,223 @@
+---
+import siteData from '../content/site.json';
+---
+
+<header class="header-fixed">
+  <div class="header-container">
+    <div class="header-content">
+      <!-- Logo -->
+      <div class="logo-section">
+        <a href="/" class="logo-link">
+          <span class="logo-icon">🍛</span>
+          <span class="logo-text">{siteData.name}</span>
+        </a>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="nav-desktop">
+        {siteData.navigation.map((item) => (
+          <a href={item.href} class="nav-link">
+            {item.name}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" class="theme-toggle">
+        <svg class="theme-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+        </svg>
+      </button>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+        <svg class="mobile-menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu hidden">
+      <div class="mobile-menu-content">
+        {siteData.navigation.map((item) => (
+          <a href={item.href} class="mobile-nav-link">
+            {item.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .header-fixed {
+    background: linear-gradient(135deg, #f97316, #fb923c);
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem;
+  }
+  
+  .logo-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: color 0.2s;
+  }
+  
+  .logo-link:hover {
+    color: #fed7aa;
+  }
+  
+  .logo-icon {
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .logo-text {
+    font-size: 1.5rem;
+  }
+  
+  .nav-desktop {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+  }
+  
+  .nav-link:hover {
+    color: #fed7aa;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .theme-toggle {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s;
+  }
+  
+  .theme-toggle:hover {
+    color: #fed7aa;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .theme-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s;
+  }
+  
+  .mobile-menu-toggle:hover {
+    color: #fed7aa;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .mobile-menu-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .mobile-menu {
+    padding-bottom: 1rem;
+  }
+  
+  .mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .mobile-nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+    padding: 0.5rem 0;
+  }
+  
+  .mobile-nav-link:hover {
+    color: #fed7aa;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .nav-desktop {
+      display: none;
+    }
+    
+    .mobile-menu-toggle {
+      display: block;
+    }
+  }
+</style>
+
+<script>
+  // Theme toggle functionality
+  document.getElementById('theme-toggle')?.addEventListener('click', () => {
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  });
+
+  // Mobile menu toggle
+  document.getElementById('mobile-menu-toggle')?.addEventListener('click', () => {
+    const menu = document.getElementById('mobile-menu');
+    menu?.classList.toggle('hidden');
+  });
+
+  // Set initial theme
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  });
+</script>

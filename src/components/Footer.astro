@@ -1,0 +1,146 @@
+---
+import siteData from '../content/site.json';
+---
+
+<footer class="footer">
+  <div class="container mx-auto px-4">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3 class="footer-title">About {siteData.name}</h3>
+        <p class="footer-text">{siteData.footer.about}</p>
+      </div>
+      
+      <div class="footer-section">
+        <h3 class="footer-title">Quick Links</h3>
+        <ul class="footer-links">
+          {siteData.navigation.map((item) => (
+            <li>
+              <a href={item.href} class="footer-link">{item.name}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3 class="footer-title">Contact Us</h3>
+        <div class="contact-info">
+          <p class="contact-item">
+            <span class="contact-icon">📞</span>
+            Juliya: {siteData.contact.phone}
+          </p>
+          <p class="contact-item">
+            <span class="contact-icon">📍</span>
+            {siteData.contact.location}
+          </p>
+          <p class="contact-item">
+            <span class="contact-icon">🕒</span>
+            {siteData.contact.pickupTime}
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p class="copyright">{siteData.footer.copyright}</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: linear-gradient(135deg, #f97316, #fb923c);
+    color: white;
+    padding: 3rem 0 1rem;
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .footer-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: white;
+  }
+  
+  .footer-text {
+    line-height: 1.6;
+    opacity: 0.9;
+    margin: 0;
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-link {
+    color: white;
+    text-decoration: none;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+  }
+  
+  .footer-link:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+  
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    opacity: 0.9;
+  }
+  
+  .contact-icon {
+    font-size: 1.1rem;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .copyright {
+    opacity: 0.8;
+    margin: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .footer-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    
+    .footer-section {
+      align-items: center;
+    }
+    
+    .contact-info {
+      align-items: center;
+    }
+  }
+</style>

@@ -1,0 +1,129 @@
+---
+import menuData from '../content/menu.json';
+---
+
+<section class="pickup-section">
+  <div class="container mx-auto px-4">
+    <div class="pickup-card">
+      <h2 class="pickup-title">Next Pickup Date</h2>
+      
+      <div class="pickup-content">
+        <div class="date-card">
+          <div class="date-number">{menuData.nextPickupDate.date}</div>
+          <div class="date-month">{menuData.nextPickupDate.month}</div>
+        </div>
+        
+        <div class="pickup-details">
+          <div class="pickup-item">
+            <span class="pickup-label">Location:</span>
+            <span class="pickup-value">{menuData.nextPickupDate.location}</span>
+          </div>
+          <div class="pickup-item">
+            <span class="pickup-label">Order Before:</span>
+            <span class="pickup-value">{menuData.nextPickupDate.orderBefore}</span>
+          </div>
+          <div class="pickup-item">
+            <span class="pickup-label">Pickup Time:</span>
+            <span class="pickup-value">{menuData.nextPickupDate.pickupTime}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pickup-section {
+    background: linear-gradient(135deg, #fde68a, #fbbf24);
+    padding: 4rem 0;
+  }
+  
+  .pickup-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+    text-align: center;
+  }
+  
+  .pickup-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: #374151;
+  }
+  
+  .pickup-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .date-card {
+    background: linear-gradient(135deg, #f97316, #fb923c);
+    color: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    min-width: 120px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .date-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1;
+  }
+  
+  .date-month {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-top: 0.5rem;
+  }
+  
+  .pickup-details {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .pickup-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  
+  .pickup-item:last-child {
+    border-bottom: none;
+  }
+  
+  .pickup-label {
+    font-weight: 600;
+    color: #16a34a;
+  }
+  
+  .pickup-value {
+    color: #374151;
+    font-weight: 500;
+  }
+  
+  @media (max-width: 768px) {
+    .pickup-content {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .pickup-details {
+      text-align: center;
+      width: 100%;
+    }
+    
+    .pickup-item {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+</style>

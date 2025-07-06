@@ -1,0 +1,305 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Ingredients - MaNu Foods">
+  <Header />
+  
+  <main id="main-content" class="ingredients-page">
+    <div class="container mx-auto px-4">
+      <div class="page-header">
+        <h1 class="page-title">Our Ingredients</h1>
+        <p class="page-subtitle">Fresh, authentic Sri Lankan ingredients</p>
+      </div>
+      
+      <div class="ingredients-content">
+        <div class="ingredients-section">
+          <h2 class="section-title">Quality Promise</h2>
+          <div class="quality-grid">
+            <div class="quality-card">
+              <div class="quality-icon">🌿</div>
+              <h3>Fresh Spices</h3>
+              <p>Authentic Sri Lankan spices sourced directly from local suppliers</p>
+            </div>
+            <div class="quality-card">
+              <div class="quality-icon">🥥</div>
+              <h3>Fresh Coconut</h3>
+              <p>Fresh coconut milk and grated coconut for traditional flavor</p>
+            </div>
+            <div class="quality-card">
+              <div class="quality-icon">🍖</div>
+              <h3>Premium Meat</h3>
+              <p>High-quality meats from trusted local butchers</p>
+            </div>
+            <div class="quality-card">
+              <div class="quality-icon">🐟</div>
+              <h3>Fresh Seafood</h3>
+              <p>Fresh fish and prawns for authentic seafood curries</p>
+            </div>
+            <div class="quality-card">
+              <div class="quality-icon">🌾</div>
+              <h3>Premium Rice</h3>
+              <p>Basmati and traditional Sri Lankan rice varieties</p>
+            </div>
+            <div class="quality-card">
+              <div class="quality-icon">🥬</div>
+              <h3>Fresh Vegetables</h3>
+              <p>Locally sourced fresh vegetables and greens</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="ingredients-section">
+          <h2 class="section-title">Common Ingredients</h2>
+          <div class="ingredients-list">
+            <div class="ingredient-category">
+              <h3>Spices & Seasonings</h3>
+              <ul>
+                <li>Cinnamon</li>
+                <li>Cardamom</li>
+                <li>Cloves</li>
+                <li>Curry leaves</li>
+                <li>Turmeric</li>
+                <li>Coriander</li>
+                <li>Cumin</li>
+                <li>Fenugreek</li>
+                <li>Red chili powder</li>
+                <li>Black pepper</li>
+              </ul>
+            </div>
+            
+            <div class="ingredient-category">
+              <h3>Vegetables & Fruits</h3>
+              <ul>
+                <li>Brinjal (Eggplant)</li>
+                <li>Okra</li>
+                <li>Banana flower</li>
+                <li>Breadfruit</li>
+                <li>Snake gourd</li>
+                <li>Leeks</li>
+                <li>Passion fruit leaves</li>
+                <li>Carrots</li>
+                <li>Onions</li>
+                <li>Garlic</li>
+              </ul>
+            </div>
+            
+            <div class="ingredient-category">
+              <h3>Proteins</h3>
+              <ul>
+                <li>Chicken</li>
+                <li>Beef</li>
+                <li>Pork</li>
+                <li>Fish (Marlin, Mackerel)</li>
+                <li>Prawns</li>
+                <li>Dhal (Lentils)</li>
+                <li>Eggs</li>
+              </ul>
+            </div>
+            
+            <div class="ingredient-category">
+              <h3>Staples</h3>
+              <ul>
+                <li>Basmati Rice</li>
+                <li>Coconut milk</li>
+                <li>Coconut oil</li>
+                <li>Roti flour</li>
+                <li>Rice flour</li>
+                <li>Tamarind</li>
+                <li>Jaggery</li>
+                <li>Mustard seeds</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="ingredients-section">
+          <h2 class="section-title">Dietary Information</h2>
+          <div class="dietary-info">
+            <div class="dietary-card">
+              <h3>🌱 Vegetarian Options</h3>
+              <p>We offer a variety of vegetarian dishes including dhal curry, vegetable mallums, and coconut-based curries.</p>
+            </div>
+            <div class="dietary-card">
+              <h3>🌶️ Spice Levels</h3>
+              <p>Our dishes range from mild to spicy. Please let us know if you have spice preferences when ordering.</p>
+            </div>
+            <div class="dietary-card">
+              <h3>🥥 Coconut Usage</h3>
+              <p>Many of our dishes contain coconut milk or grated coconut. Please inform us of any coconut allergies.</p>
+            </div>
+            <div class="dietary-card">
+              <h3>🍃 Fresh Preparation</h3>
+              <p>All dishes are prepared fresh on the day of pickup using traditional cooking methods.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</BaseLayout>
+
+<style>
+  .ingredients-page {
+    padding: 6rem 0 2rem;
+    background-color: #f9fafb;
+    min-height: 100vh;
+  }
+  
+  .page-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .page-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #374151;
+    margin-bottom: 1rem;
+  }
+  
+  .page-subtitle {
+    font-size: 1.2rem;
+    color: #6b7280;
+    margin: 0;
+  }
+  
+  .ingredients-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .ingredients-section {
+    margin-bottom: 4rem;
+    background: white;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #374151;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .quality-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .quality-card {
+    background: #f9fafb;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .quality-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .quality-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .quality-card h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #374151;
+    margin-bottom: 1rem;
+  }
+  
+  .quality-card p {
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  .ingredients-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  
+  .ingredient-category {
+    background: #f9fafb;
+    border-radius: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .ingredient-category h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #f97316;
+    margin-bottom: 1rem;
+  }
+  
+  .ingredient-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .ingredient-category li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e5e7eb;
+    color: #374151;
+  }
+  
+  .ingredient-category li:last-child {
+    border-bottom: none;
+  }
+  
+  .dietary-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+  
+  .dietary-card {
+    background: #fef3c7;
+    border-radius: 1rem;
+    padding: 2rem;
+    border-left: 4px solid #f97316;
+  }
+  
+  .dietary-card h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #374151;
+    margin-bottom: 1rem;
+  }
+  
+  .dietary-card p {
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 2rem;
+    }
+    
+    .quality-grid,
+    .ingredients-list,
+    .dietary-info {
+      grid-template-columns: 1fr;
+    }
+    
+    .ingredients-section {
+      padding: 2rem;
+    }
+  }
+</style>
+</BaseLayout>

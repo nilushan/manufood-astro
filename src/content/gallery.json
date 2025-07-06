@@ -1,0 +1,84 @@
+{
+  "galleries": [
+    {
+      "date": "February 15, 2025",
+      "dishes": [
+        {
+          "name": "Chicken Devilled",
+          "description": "Traditional Sri Lankan style spicy chicken",
+          "image": "15022025/chicken"
+        },
+        {
+          "name": "Fish Curry",
+          "description": "Marlin fish in aromatic curry sauce",
+          "image": "15022025/fish"
+        },
+        {
+          "name": "Prawn Curry",
+          "description": "Spicy coconut prawn curry",
+          "image": "15022025/prawns"
+        },
+        {
+          "name": "Brinjol Moju",
+          "description": "Pickled eggplant with spices",
+          "image": "15022025/brinjol"
+        },
+        {
+          "name": "String Hopper Noodles",
+          "description": "Traditional Sri Lankan string hoppers",
+          "image": "15022025/noodles"
+        },
+        {
+          "name": "Pittu",
+          "description": "Traditional steamed rice flour cake",
+          "image": "15022025/pittu"
+        }
+      ]
+    },
+    {
+      "date": "February 22, 2025",
+      "dishes": [
+        {
+          "name": "Pork Deviled",
+          "description": "Spicy and tangy pork dish",
+          "image": "22022025/pork_deviled"
+        },
+        {
+          "name": "Fried Fish Deviled",
+          "description": "Spicy fried fish dish",
+          "image": "22022025/friedfish_deviled"
+        },
+        {
+          "name": "Beef Curry",
+          "description": "Spicy Sri Lankan beef curry",
+          "image": "22022025/beef_curry"
+        },
+        {
+          "name": "Okra Tempura",
+          "description": "Crispy okra tempura",
+          "image": "22022025/okra_tempura"
+        },
+        {
+          "name": "Kottu Beef",
+          "description": "Chopped roti with beef and vegetables",
+          "image": "22022025/kottu_beef"
+        },
+        {
+          "name": "Kottu Chicken",
+          "description": "Chopped roti with chicken and vegetables",
+          "image": "22022025/kottu_chicken"
+        },
+        {
+          "name": "Banana Flower Curry",
+          "description": "Traditional banana flower curry",
+          "image": "22022025/bananaflower_curry"
+        },
+        {
+          "name": "Breadfruit Mallum",
+          "description": "Spiced breadfruit with coconut",
+          "image": "22022025/breadfruit_mallum"
+        }
+      ]
+    }
+  ]
+}

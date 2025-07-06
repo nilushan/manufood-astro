@@ -1,0 +1,80 @@
+---
+import siteData from '../content/site.json';
+---
+
+<section class="features-section section-large">
+  <div class="container mx-auto px-4">
+    <h2 class="section-title">Delicious Home-Cooked Sri Lankan Food</h2>
+    <p class="text-center text-lg mb-12 text-gray-600 max-w-2xl mx-auto">
+      {siteData.description}
+    </p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {siteData.features.map((feature) => (
+        <div class="feature-card">
+          <div class="feature-icon">
+            {feature.icon}
+          </div>
+          <h3 class="feature-title">{feature.title}</h3>
+          <p class="feature-description">{feature.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .features-section {
+    background-color: #f9fafb;
+    padding: 4rem 0;
+  }
+  
+  .feature-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+  }
+  
+  .feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    background-color: #fef3c7;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+  }
+  
+  .feature-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #374151;
+  }
+  
+  .feature-description {
+    color: #6b7280;
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 768px) {
+    .features-section {
+      padding: 2rem 0;
+    }
+    
+    .feature-card {
+      padding: 2rem 1rem;
+    }
+  }
+</style>

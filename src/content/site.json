@@ -1,0 +1,78 @@
+{
+  "name": "MaNu Foods",
+  "tagline": "Authentic Sri Lankan Home Cooked Meals in Yarrabilba",
+  "description": "Tired of cooking after a long week? Let us bring the authentic taste of Sri Lanka to your table!",
+  "contact": {
+    "phone": "0416019891",
+    "location": "Parks Estate, Yarrabilba, QLD",
+    "pickupTime": "Order Pickup: Saturday 3-6pm",
+    "orderDeadline": "Order Before: 26th March"
+  },
+  "social": {
+    "facebook": "",
+    "instagram": "",
+    "twitter": ""
+  },
+  "navigation": [
+    {
+      "name": "Home",
+      "href": "/"
+    },
+    {
+      "name": "Gallery",
+      "href": "/gallery"
+    },
+    {
+      "name": "Ingredients",
+      "href": "/ingredients"
+    },
+    {
+      "name": "Contact",
+      "href": "/contact"
+    }
+  ],
+  "features": [
+    {
+      "icon": "🥘",
+      "title": "Fresh & Authentic",
+      "description": "Cooked fresh every Saturday using traditional recipes and quality ingredients"
+    },
+    {
+      "icon": "📅",
+      "title": "Weekly Specials",
+      "description": "New menu every week featuring favorite Sri Lankan dishes"
+    },
+    {
+      "icon": "🏠",
+      "title": "Local Pickup",
+      "description": "Convenient pickup location in Parks Estate, Yarrabilba"
+    }
+  ],
+  "howToOrder": [
+    {
+      "step": "1",
+      "title": "Browse Menu",
+      "description": "Check our weekly menu posted every Monday"
+    },
+    {
+      "step": "2",
+      "title": "Place Order",
+      "description": "Update the order, copy and message",
+      "details": "SMS Juliya: 0416019891"
+    },
+    {
+      "step": "3",
+      "title": "Pick Up",
+      "description": "Collect your food on Saturday after 3:00 PM"
+    },
+    {
+      "step": "4",
+      "title": "Enjoy!",
+      "description": "Savor your authentic Sri Lankan meal"
+    }
+  ],
+  "footer": {
+    "about": "Authentic Sri Lankan cuisine made with love in Yarrabilba, QLD",
+    "copyright": "© 2025 MaNu Foods • Built by Nilushan"
+  }
+}

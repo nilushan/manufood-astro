@@ -1,149 +1,156 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@import 'tailwindcss';
-@plugin "@tailwindcss/typography";
-/* @plugin "tailwindcss-animate"; */
-
-@import "tw-animate-css";
-
-@plugin "daisyui" {
-  themes: light --default, dark --prefersdark, cupcake, bumblebee, emerald, corporate, synthwave, retro, cyberpunk, valentine, halloween, garden, forest, aqua, lofi, pastel, fantasy, wireframe, black, luxury, dracula, cmyk, autumn, business, acid, lemonade, night, coffee, winter, dim, nord, sunset, caramellatte, abyss, silk;
-  root: ":root";
-  include: ;
-  exclude: ;
-  prefix: ;
-  logs: true;
+/* Global Styles */
+html {
+  scroll-behavior: smooth;
 }
 
-@theme {
-  /* Default fonts */
-  --font-family-sans: "Atkinson Hyperlegible", system-ui, sans-serif;
-  --font-family-serif: "Crimson Text", Georgia, serif;
-  --font-family-mono: "JetBrains Mono", monospace;
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-/* Theme-specific font overrides
-[data-theme="light"] {
-  --font-family-sans: "Inter", system-ui, sans-serif;
-  --font-family-serif: "Crimson Text", Georgia, serif;
-  --font-family-display: "Inter", system-ui, sans-serif;
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
 }
 
+::-webkit-scrollbar-thumb {
+  background: #f97316;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ea580c;
+}
+
+/* Focus styles for accessibility */
+button:focus,
+input:focus,
+a:focus {
+  outline: 2px solid #f97316;
+  outline-offset: 2px;
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Dark mode adjustments */
 [data-theme="dark"] {
-  --font-family-sans: "Space Grotesk", system-ui, sans-serif;
-  --font-family-serif: "Playfair Display", Georgia, serif;
-  --font-family-display: "Space Grotesk", system-ui, sans-serif;
+  color-scheme: dark;
 }
 
-[data-theme="corporate"] {
-  --font-family-sans: "Inter", system-ui, sans-serif;
-  --font-family-serif: "Playfair Display", Georgia, serif;
-  --font-family-display: "Inter", system-ui, sans-serif;
+[data-theme="dark"] .hero-section {
+  background: linear-gradient(135deg, #ea580c, #f97316);
 }
 
-[data-theme="synthwave"] {
-  --font-family-sans: "Space Grotesk", system-ui, sans-serif;
-  --font-family-serif: "JetBrains Mono", monospace;
-  --font-family-display: "Space Grotesk", system-ui, sans-serif;
+[data-theme="dark"] .card {
+  background: #1f2937;
+  color: #f9fafb;
 }
 
-[data-theme="retro"] {
-  --font-family-sans: "Poppins", system-ui, sans-serif;
-  --font-family-serif: "Crimson Text", Georgia, serif;
-  --font-family-display: "Poppins", system-ui, sans-serif;
+[data-theme="dark"] .section-title {
+  color: #f9fafb;
 }
 
-[data-theme="cyberpunk"] {
-  --font-family-sans: "JetBrains Mono", monospace;
-  --font-family-serif: "JetBrains Mono", monospace;
-  --font-family-display: "Space Grotesk", system-ui, sans-serif;
-}
-
-[data-theme="valentine"] {
-  --font-family-sans: "Poppins", system-ui, sans-serif;
-  --font-family-serif: "Playfair Display", Georgia, serif;
-  --font-family-display: "Playfair Display", Georgia, serif;
-}
-
-[data-theme="garden"] {
-  --font-family-sans: "Inter", system-ui, sans-serif;
-  --font-family-serif: "Crimson Text", Georgia, serif;
-  --font-family-display: "Crimson Text", Georgia, serif;
-}
-
-[data-theme="forest"] {
-  --font-family-sans: "Inter", system-ui, sans-serif;
-  --font-family-serif: "Crimson Text", Georgia, serif;
-  --font-family-display: "Inter", system-ui, sans-serif;
-}
-
-[data-theme="luxury"] {
-  --font-family-sans: "Inter", system-ui, sans-serif;
-  --font-family-serif: "Playfair Display", Georgia, serif;
-  --font-family-display: "Playfair Display", Georgia, serif;
-}
-
-[data-theme="dracula"] {
-  --font-family-sans: "Space Grotesk", system-ui, sans-serif;
-  --font-family-serif: "Space Grotesk", system-ui, sans-serif;
-  --font-family-display: "Space Grotesk", system-ui, sans-serif;
-}
-
-[data-theme="business"] {
-  --font-family-sans: "Inter", system-ui, sans-serif;
-  --font-family-serif: "Inter", system-ui, sans-serif;
-  --font-family-display: "Inter", system-ui, sans-serif;
-} */
-
-/* Custom font utilities that respect theme */
-@layer utilities {
-  .font-display {
-    font-family: var(--font-family-display);
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
   }
   
-  .font-theme-sans {
-    font-family: var(--font-family-sans);
-  }
-  
-  .font-theme-serif {
-    font-family: var(--font-family-serif);
-  }
-  
-  /* Line clamp utilities */
-  .line-clamp-1 {
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  
-  .line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  
-  .line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  
-  .line-clamp-4 {
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  .print-only {
+    display: block !important;
   }
 }
 
-@layer base, starlight, theme, components, utilities;
+/* Utility classes */
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
 
-@import '@astrojs/starlight-tailwind';
-@import 'tailwindcss/theme.css' layer(theme);
-@import 'tailwindcss/utilities.css' layer(utilities);
+.bg-gradient-orange {
+  background: linear-gradient(135deg, #f97316, #fb923c);
+}
+
+.bg-gradient-yellow {
+  background: linear-gradient(135deg, #fde68a, #fbbf24);
+}
+
+/* Component-specific styles */
+.hero-food-image {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.hero-food-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Loading states */
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Responsive image handling */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Skip to content link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #f97316;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 6px;
+}

@@ -1,0 +1,249 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import siteData from '../content/site.json';
+---
+
+<BaseLayout title="Contact Us - MaNu Foods">
+  <Header />
+  
+  <main class="contact-page">
+    <div class="container mx-auto px-4">
+      <div class="page-header">
+        <h1 class="page-title">Contact Us</h1>
+        <p class="page-subtitle">Find us in Yarrabilba, QLD</p>
+      </div>
+      
+      <div class="contact-content">
+        <div class="contact-section">
+          <h2 class="section-title">Get in Touch</h2>
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div class="contact-details">
+                <h3>Phone</h3>
+                <p>Juliya - <a href="tel:0416019891" class="contact-link">{siteData.contact.phone}</a></p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div class="contact-details">
+                <h3>Location</h3>
+                <p>{siteData.contact.location}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="hours-section">
+          <h2 class="section-title">Hours of Operation</h2>
+          <div class="hours-info">
+            <div class="hours-item">
+              <span class="hours-day">Sunday to Thursday</span>
+              <span class="hours-time">Accepting orders</span>
+            </div>
+            <div class="hours-item">
+              <span class="hours-day">Saturday</span>
+              <span class="hours-time">3:00 pm to 6:00 pm (Order pickup)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="map-section">
+        <h2 class="section-title">Find Us</h2>
+        <div class="map-placeholder">
+          <div class="map-content">
+            <div class="location-icon">📍</div>
+            <h3>Parks Estate, Yarrabilba, QLD</h3>
+            <p>Exact pickup location will be provided with your order confirmation</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</BaseLayout>
+
+<style>
+  .contact-page {
+    padding: 6rem 0 2rem;
+    background-color: #f9fafb;
+    min-height: 100vh;
+  }
+  
+  .page-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .page-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #374151;
+    margin-bottom: 1rem;
+  }
+  
+  .page-subtitle {
+    font-size: 1.2rem;
+    color: #6b7280;
+    margin: 0;
+  }
+  
+  .contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+  }
+  
+  .contact-section,
+  .hours-section {
+    background: white;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #374151;
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .contact-icon {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    background-color: #fef3c7;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .contact-details h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #374151;
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact-details p {
+    color: #6b7280;
+    margin: 0;
+  }
+  
+  .contact-link {
+    color: #16a34a;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .contact-link:hover {
+    text-decoration: underline;
+  }
+  
+  .hours-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .hours-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f9fafb;
+    border-radius: 0.5rem;
+  }
+  
+  .hours-day {
+    font-weight: 600;
+    color: #374151;
+  }
+  
+  .hours-time {
+    color: #16a34a;
+    font-weight: 500;
+  }
+  
+  .map-section {
+    background: white;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .map-placeholder {
+    background: linear-gradient(135deg, #fde68a, #fbbf24);
+    border-radius: 1rem;
+    padding: 3rem;
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+  
+  .map-content {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .location-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .map-content h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #374151;
+    margin-bottom: 1rem;
+  }
+  
+  .map-content p {
+    color: #6b7280;
+    margin: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 2rem;
+    }
+    
+    .contact-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .contact-section,
+    .hours-section,
+    .map-section {
+      padding: 2rem;
+    }
+    
+    .hours-item {
+      flex-direction: column;
+      text-align: center;
+      gap: 0.5rem;
+    }
+  }
+</style>
+</BaseLayout>
