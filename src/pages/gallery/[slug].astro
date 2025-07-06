@@ -1,0 +1,162 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import galleryData from '../../content/gallery.json';
+import { images } from '../../lib/images';
+
+export async function getStaticPaths() {
+  return galleryData.galleries.map((gallery) => ({
+    params: { 
+      slug: gallery.date.toLowerCase().replace(/\s+/g, '-').replace(/,/g, '') 
+    },
+    props: { gallery }
+  }));
+}
+
+const { gallery } = Astro.props;
+---
+
+<BaseLayout title={`${gallery.date} - Gallery - MaNu Foods`}>
+  <Header />
+  
+  <main id="main-content" class="collection-page">
+    <div class="container mx-auto px-4">
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb mb-8">
+        <div class="breadcrumbs text-sm">
+          <ul>
+            <li><a href="/" class="text-primary hover:text-primary-focus">Home</a></li>
+            <li><a href="/gallery" class="text-primary hover:text-primary-focus">Gallery</a></li>
+            <li class="text-base-content/70">{gallery.date}</li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Collection Header -->
+      <div class="collection-header text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-base-content mb-4">
+          Dishes from {gallery.date}
+        </h1>
+        <p class="text-xl text-base-content/70">
+          Authentic Sri Lankan dishes prepared with love
+        </p>
+      </div>
+
+      <!-- Image Grid -->
+      <div class="dishes-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        {gallery.dishes.map((dish) => (
+          <div class="dish-card card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+            <figure class="dish-image">
+              <Image 
+                src={images[dish.image]} 
+                alt={dish.name}
+                class="w-full h-64 object-cover"
+                width={400}
+                height={300}
+                format="webp"
+                quality={90}
+                loading="lazy"
+              />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title text-xl mb-2">{dish.name}</h2>
+              <p class="text-base-content/70 leading-relaxed">{dish.description}</p>
+              <div class="card-actions justify-end mt-4">
+                <div class="badge badge-primary badge-outline">Sri Lankan</div>
+                <div class="badge badge-secondary badge-outline">Fresh</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Navigation -->
+      <div class="collection-nav">
+        <div class="flex justify-between items-center bg-base-200 rounded-lg p-6">
+          <a href="/gallery" class="btn btn-outline btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to Gallery
+          </a>
+          <div class="text-center">
+            <p class="text-sm text-base-content/70 mb-1">Collection</p>
+            <p class="font-semibold">{gallery.date}</p>
+          </div>
+          <a href="/contact" class="btn btn-primary">
+            Order Similar Dishes
+          </a>
+        </div>
+      </div>
+
+      <!-- Related Collections -->
+      <div class="related-collections mt-12">
+        <h2 class="text-2xl font-bold text-center mb-8">Other Collections</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {galleryData.galleries.filter(g => g.date !== gallery.date).map((otherGallery) => (
+            <a 
+              href={`/gallery/${otherGallery.date.toLowerCase().replace(/\s+/g, '-').replace(/,/g, '')}`}
+              class="related-card card bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            >
+              <div class="card-body">
+                <h3 class="card-title">{otherGallery.date}</h3>
+                <p class="text-base-content/70">{otherGallery.dishes.length} delicious dishes</p>
+                <div class="card-actions justify-end">
+                  <div class="btn btn-primary btn-sm">View Collection</div>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</BaseLayout>
+
+<style>
+  .collection-page {
+    padding: 6rem 0 2rem;
+    background-color: #f9fafb;
+    min-height: 100vh;
+  }
+  
+  .collection-header {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    padding: 3rem 2rem;
+    border-radius: 1rem;
+    margin-bottom: 3rem;
+  }
+  
+  .dish-image {
+    height: 16rem;
+    overflow: hidden;
+  }
+  
+  .related-card:hover {
+    background-color: #fef3c7;
+  }
+  
+  @media (max-width: 768px) {
+    .collection-header {
+      padding: 2rem 1rem;
+    }
+    
+    .collection-header h1 {
+      font-size: 2rem;
+    }
+    
+    .dishes-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .collection-nav .flex {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+</style>
+</BaseLayout>
