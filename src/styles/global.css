@@ -1,35 +1,34 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Global Styles */
-html {
-  scroll-behavior: smooth;
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
+  logs: true;
 }
 
-/* Custom scrollbar */
+/* Minimal custom CSS - only what's absolutely necessary */
+
+/* Custom scrollbar using DaisyUI colors */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: oklch(var(--b2));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #f97316;
+  background: oklch(var(--p));
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ea580c;
+  background: oklch(var(--pf));
 }
 
-/* Focus styles for accessibility */
+/* Focus styles using DaisyUI colors */
 button:focus,
 input:focus,
 a:focus {
-  outline: 2px solid #f97316;
+  outline: 2px solid oklch(var(--p));
   outline-offset: 2px;
 }
 
@@ -49,102 +48,13 @@ a:focus {
   animation: fadeInUp 0.6s ease-out;
 }
 
-/* Dark mode adjustments */
-[data-theme="dark"] {
-  color-scheme: dark;
-}
-
-[data-theme="dark"] .hero-section {
-  background: linear-gradient(135deg, #ea580c, #f97316);
-}
-
-[data-theme="dark"] .card {
-  background: #1f2937;
-  color: #f9fafb;
-}
-
-[data-theme="dark"] .section-title {
-  color: #f9fafb;
-}
-
-/* Print styles */
-@media print {
-  .no-print {
-    display: none !important;
-  }
-  
-  .print-only {
-    display: block !important;
-  }
-}
-
-/* Utility classes */
-.text-shadow {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.bg-gradient-orange {
-  background: linear-gradient(135deg, #f97316, #fb923c);
-}
-
-.bg-gradient-yellow {
-  background: linear-gradient(135deg, #fde68a, #fbbf24);
-}
-
-/* Component-specific styles */
-.hero-food-image {
-  max-width: 800px;
-  margin: 0 auto;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-.hero-food-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Loading states */
-.loading {
-  position: relative;
-  overflow: hidden;
-}
-
-.loading::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-  0% {
-    left: -100%;
-  }
-  100% {
-    left: 100%;
-  }
-}
-
-/* Responsive image handling */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
 /* Skip to content link for accessibility */
 .skip-link {
   position: absolute;
   top: -40px;
   left: 6px;
-  background: #f97316;
-  color: white;
+  background: oklch(var(--p));
+  color: oklch(var(--pc));
   padding: 8px;
   text-decoration: none;
   border-radius: 4px;
@@ -153,4 +63,12 @@ img {
 
 .skip-link:focus {
   top: 6px;
+}
+
+/* Line clamp utility */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

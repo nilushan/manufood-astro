@@ -4,105 +4,51 @@ import galleryData from '../content/gallery.json';
 import { images } from '../lib/images';
 ---
 
-<section class="gallery-section section-large">
+<section class="py-16 bg-base-100">
   <div class="container mx-auto px-4">
-    <h2 class="section-title">Latest From Our Kitchen</h2>
+    <h2 class="text-4xl font-bold text-center mb-4 text-base-content">Latest From Our Kitchen</h2>
+    <div class="w-16 h-1 bg-error mx-auto mb-12"></div>
     
     {galleryData.galleries.map((gallery) => (
-      <div class="gallery-group">
-        <div class="gallery-header">
-          <h3 class="gallery-date">Dishes on {gallery.date}</h3>
-          <a 
-            href={`/gallery/${gallery.date.toLowerCase().replace(/\s+/g, '-').replace(/,/g, '')}`}
-            class="btn btn-outline btn-primary btn-sm"
-          >
-            View Full Collection
-          </a>
-        </div>
-        
-        <div class="dishes-grid">
-          {gallery.dishes.map((dish) => (
-            <div class="dish-card card bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <figure class="dish-image">
-                <Image 
-                  src={images[dish.image]} 
-                  alt={dish.name}
-                  class="w-full h-48 object-cover"
-                  width={300}
-                  height={200}
-                  format="webp"
-                  quality={85}
-                  loading="lazy"
-                />
-              </figure>
-              <div class="card-body p-4">
-                <h4 class="card-title text-lg">{dish.name}</h4>
-                <p class="text-base-content/70 text-sm leading-relaxed">{dish.description}</p>
+      <div class="card bg-base-200 shadow-xl mb-8 hover:shadow-2xl transition-all duration-300">
+        <div class="card-body">
+          <div class="flex justify-between items-center mb-6">
+            <h3 class="card-title text-2xl">Dishes on {gallery.date}</h3>
+            <a 
+              href={`/gallery/${gallery.date.toLowerCase().replace(/\s+/g, '-').replace(/,/g, '')}`}
+              class="btn btn-outline btn-primary btn-sm"
+            >
+              View Full Collection
+            </a>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {gallery.dishes.map((dish) => (
+              <div class="card bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <figure class="h-48">
+                  <Image 
+                    src={images[dish.image]} 
+                    alt={dish.name}
+                    class="w-full h-full object-cover"
+                    width={300}
+                    height={200}
+                    format="webp"
+                    quality={85}
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="card-body p-4">
+                  <h4 class="card-title text-lg">{dish.name}</h4>
+                  <p class="text-base-content/70 text-sm line-clamp-3">{dish.description}</p>
+                  <div class="card-actions justify-end mt-3">
+                    <div class="badge badge-primary badge-outline">Sri Lankan</div>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     ))}
   </div>
 </section>
-
-<style>
-  .gallery-section {
-    background-color: white;
-    padding: 4rem 0;
-  }
-  
-  .gallery-group {
-    margin-bottom: 4rem;
-    background: #f9fafb;
-    border-radius: 1rem;
-    padding: 2.5rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  }
-  
-  .gallery-group:last-child {
-    margin-bottom: 0;
-  }
-  
-  .gallery-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-  }
-  
-  .gallery-date {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #374151;
-    margin: 0;
-  }
-  
-  .dishes-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-  
-  .dish-image {
-    height: 12rem;
-    overflow: hidden;
-  }
-  
-  @media (max-width: 768px) {
-    .gallery-header {
-      flex-direction: column;
-      gap: 1rem;
-      text-align: center;
-    }
-    
-    .gallery-date {
-      font-size: 1.5rem;
-    }
-    
-    .dishes-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>

@@ -2,19 +2,24 @@
 import siteData from '../content/site.json';
 ---
 
-<section class="how-to-order-section section-large">
+<section class="py-16 bg-base-100">
   <div class="container mx-auto px-4">
-    <h2 class="section-title">How to Order</h2>
+    <h2 class="text-4xl font-bold text-center mb-4 text-base-content">How to Order</h2>
+    <div class="w-16 h-1 bg-error mx-auto mb-12"></div>
     
-    <div class="steps-grid">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
       {siteData.howToOrder.map((step) => (
-        <div class="step-card">
-          <div class="step-number">{step.step}</div>
-          <div class="step-content">
-            <h3 class="step-title">{step.title}</h3>
-            <p class="step-description">{step.description}</p>
+        <div class="card bg-base-200 shadow-lg hover:shadow-xl transition-all duration-300">
+          <div class="card-body text-center">
+            <div class="badge badge-success badge-lg w-12 h-12 text-xl font-bold mx-auto mb-4">
+              {step.step}
+            </div>
+            <h3 class="card-title justify-center text-lg mb-3">{step.title}</h3>
+            <p class="text-base-content/70 text-sm mb-3">{step.description}</p>
             {step.details && (
-              <p class="step-details">{step.details}</p>
+              <div class="badge badge-primary badge-outline badge-sm">
+                {step.details}
+              </div>
             )}
           </div>
         </div>
@@ -22,81 +27,3 @@ import siteData from '../content/site.json';
     </div>
   </div>
 </section>
-
-<style>
-  .how-to-order-section {
-    background-color: white;
-    padding: 4rem 0;
-  }
-  
-  .steps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  
-  .step-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
-    padding: 2rem;
-    background: #f9fafb;
-    border-radius: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .step-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.15);
-  }
-  
-  .step-number {
-    background: #16a34a;
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 1.2rem;
-    flex-shrink: 0;
-  }
-  
-  .step-content {
-    flex: 1;
-  }
-  
-  .step-title {
-    font-size: 1.3rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: #374151;
-  }
-  
-  .step-description {
-    color: #6b7280;
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
-  }
-  
-  .step-details {
-    color: #16a34a;
-    font-weight: 600;
-    margin: 0;
-  }
-  
-  @media (max-width: 768px) {
-    .steps-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .step-card {
-      padding: 1.5rem;
-    }
-  }
-</style>

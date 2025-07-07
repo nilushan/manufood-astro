@@ -54,63 +54,73 @@ export default function OrderForm() {
   };
 
   return (
-    <section className="order-section">
+    <section className="py-16 bg-base-200">
       <div className="container mx-auto px-4">
-        <h2 className="section-title">This Week's Menu</h2>
+        <h2 className="text-4xl font-bold text-center mb-4 text-base-content">This Week's Menu</h2>
+        <div className="w-16 h-1 bg-error mx-auto mb-12"></div>
         
-        <div className="order-card">
-          <h3 className="order-title">My Order</h3>
-          
-          {menuData.menu.categories.map((category) => (
-            <div key={category.name} className="category-section">
-              <h4 className="category-title">{category.name}</h4>
-              
-              <div className="items-list">
-                {category.items.map((item) => (
-                  <div key={item.name} className="item-row">
-                    <div className="item-info">
-                      <span className="item-name">{item.name}</span>
-                      <span className="item-price">${item.price}</span>
+        <div className="card bg-base-100 shadow-xl max-w-4xl mx-auto">
+          <div className="card-body">
+            <h3 className="card-title text-2xl mb-6">My Order</h3>
+            
+            {menuData.menu.categories.map((category) => (
+              <div key={category.name} className="mb-8">
+                <div className="divider divider-start">
+                  <h4 className="text-lg font-bold text-primary">{category.name}</h4>
+                </div>
+                
+                <div className="space-y-4">
+                  {category.items.map((item) => (
+                    <div key={item.name} className="card bg-base-200 shadow-sm">
+                      <div className="card-body p-4">
+                        <div className="flex justify-between items-center">
+                          <div className="flex-1">
+                            <h5 className="font-semibold text-base-content">{item.name}</h5>
+                            <span className="text-success font-bold">${item.price}</span>
+                          </div>
+                          <div className="join">
+                            <button 
+                              onClick={() => updateQuantity(item.name, item.price, Math.max(0, (orders[item.name]?.quantity || 0) - 1))}
+                              className="btn btn-sm btn-outline join-item"
+                            >
+                              -
+                            </button>
+                            <input 
+                              type="number" 
+                              value={orders[item.name]?.quantity || 0}
+                              onChange={(e) => updateQuantity(item.name, item.price, parseInt(e.target.value) || 0)}
+                              className="input input-sm w-16 join-item text-center"
+                              min="0"
+                            />
+                            <button 
+                              onClick={() => updateQuantity(item.name, item.price, (orders[item.name]?.quantity || 0) + 1)}
+                              className="btn btn-sm btn-outline join-item"
+                            >
+                              +
+                            </button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div className="quantity-control">
-                      <button 
-                        onClick={() => updateQuantity(item.name, item.price, Math.max(0, (orders[item.name]?.quantity || 0) - 1))}
-                        className="quantity-btn"
-                      >
-                        -
-                      </button>
-                      <input 
-                        type="number" 
-                        value={orders[item.name]?.quantity || 0}
-                        onChange={(e) => updateQuantity(item.name, item.price, parseInt(e.target.value) || 0)}
-                        className="quantity-input"
-                        min="0"
-                      />
-                      <button 
-                        onClick={() => updateQuantity(item.name, item.price, (orders[item.name]?.quantity || 0) + 1)}
-                        className="quantity-btn"
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+              </div>
+            ))}
+            
+            <div className="card-actions justify-end">
+              <div className="text-right">
+                <div className="text-2xl font-bold text-success mb-4">
+                  Total: ${totalAmount}
+                </div>
+                <button 
+                  onClick={generateOrderText}
+                  className="btn btn-primary btn-lg"
+                >
+                  Copy order, paste to message and send
+                </button>
+                <p className="text-sm text-base-content/70 mt-2">SMS Juliya: 0416019891</p>
               </div>
             </div>
-          ))}
-          
-          <div className="order-footer">
-            <div className="total-section">
-              <span className="total-label">Total: </span>
-              <span className="total-amount">${totalAmount}</span>
-            </div>
-            <button 
-              onClick={generateOrderText}
-              className="order-btn"
-            >
-              Copy order, paste to message and send
-            </button>
-            <p className="order-note">SMS Juliya: 0416019891</p>
           </div>
         </div>
       </div>

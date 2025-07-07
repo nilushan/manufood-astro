@@ -2,51 +2,27 @@
 import siteData from '../content/site.json';
 ---
 
-<section class="features-section section-large">
+<section class="py-16 bg-base-200">
   <div class="container mx-auto px-4">
-    <h2 class="section-title">Delicious Home-Cooked Sri Lankan Food</h2>
-    <p class="text-center text-lg mb-12 text-gray-600 max-w-2xl mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-4 text-base-content">Delicious Home-Cooked Sri Lankan Food</h2>
+    <div class="w-16 h-1 bg-error mx-auto mb-12"></div>
+    
+    <p class="text-center text-lg mb-12 text-base-content/70 max-w-2xl mx-auto">
       {siteData.description}
     </p>
     
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
       {siteData.features.map((feature) => (
         <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-          <div class="card-body text-center p-8">
-            <div class="feature-icon">
+          <div class="card-body text-center">
+            <div class="mx-auto mb-4 w-16 h-16 bg-warning/20 rounded-full flex items-center justify-center text-3xl">
               {feature.icon}
             </div>
-            <h3 class="card-title justify-center text-xl mb-4">{feature.title}</h3>
-            <p class="text-base-content/70 leading-relaxed">{feature.description}</p>
+            <h2 class="card-title justify-center text-xl mb-4">{feature.title}</h2>
+            <p class="text-base-content/70">{feature.description}</p>
           </div>
         </div>
       ))}
     </div>
   </div>
 </section>
-
-<style>
-  .features-section {
-    background-color: #f9fafb;
-    padding: 4rem 0;
-  }
-  
-  .feature-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 70px;
-    height: 70px;
-    background-color: #fef3c7;
-    border-radius: 50%;
-    margin: 0 auto 1.5rem;
-  }
-  
-  @media (max-width: 767px) {
-    .features-section {
-      padding: 2rem 0;
-    }
-  }
-</style>
