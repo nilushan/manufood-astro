@@ -1,193 +1,118 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-/* Custom Sri Lankan Spice Theme */
-@plugin "daisyui/theme" {
-  name: "manufood-light";
-  default: true;
-  prefersdark: false;
-  color-scheme: light;
 
-  /* Light theme - Turmeric & Spice Palette */
-  /* Primary: Turmeric Gold Gradient - converted to single color using middle value */
-  --color-primary: oklch(72% 0.15 65); /* #FFA726 - Turmeric Gold */
-  --color-primary-content: oklch(100% 0 0); /* White text on primary */
-  
-  /* Secondary: Curry Leaf Green */
-  --color-secondary: oklch(50% 0.15 140); /* #388E3C - Curry Leaf Green */
-  --color-secondary-content: oklch(100% 0 0); /* White text on secondary */
-  
-  /* Accent: Chili Red */
-  --color-accent: oklch(60% 0.25 25); /* #C62828 - Chili Red */
-  --color-accent-content: oklch(100% 0 0); /* White text on accent */
-  
-  /* Neutral: Dark brown for text */
-  --color-neutral: oklch(30% 0.05 45); /* #3E2723 - Dark brown */
-  --color-neutral-content: oklch(100% 0 0); /* White text on neutral */
-  
-  /* Base colors: Coconut Cream background */
-  --color-base-100: oklch(98% 0.01 45); /* #FFF8F0 - Coconut Cream */
-  --color-base-200: oklch(94% 0.02 40); /* #FFE0B2 - Slightly darker cream */
-  --color-base-300: oklch(85% 0.03 35); /* #FFB74D - Card borders */
-  --color-base-content: oklch(30% 0.05 45); /* #3E2723 - Dark brown text */
-  
-  /* Semantic colors */
-  --color-info: oklch(70% 0.15 220); /* Blue for info */
-  --color-info-content: oklch(100% 0 0);
-  --color-success: oklch(65% 0.15 140); /* Green for success */
-  --color-success-content: oklch(100% 0 0);
-  --color-warning: oklch(80% 0.15 65); /* Orange for warning */
-  --color-warning-content: oklch(20% 0.05 45);
-  --color-error: oklch(60% 0.25 25); /* Red for error */
-  --color-error-content: oklch(100% 0 0);
-
-  /* Component styling */
-  --radius-selector: 0.5rem;
-  --radius-field: 0.375rem;
-  --radius-box: 0.5rem;
-  --size-selector: 0.25rem;
-  --size-field: 0.25rem;
-  --border: 1px;
-  --depth: 1;
-  --noise: 0;
-}
-
-/* Custom Dark Theme - Spice Market Night */
+/* Custom Sri Lankan Dark Theme - Rich Spice Market */
 @plugin "daisyui/theme" {
   name: "manufood-dark";
   default: false;
   prefersdark: true;
   color-scheme: dark;
 
-  /* Dark theme - Spice Market Night */
-  /* Primary: Evening Spice - warmer gradient */
-  --color-primary: oklch(75% 0.15 55); /* #FFB300 - Evening Spice */
-  --color-primary-content: oklch(20% 0.05 45); /* Dark brown text */
+  /* Dark theme - Rich, warm, and vibrant spice colors */
+  --color-base-100: #1a120b;          /* Deep clay pot brown */
+  --color-base-200: #2e210b;          /* Medium clay brown */
+  --color-base-300: #3e2a1b;          /* Lighter clay brown */
+  --color-base-content: #ffeedd;      /* Warm cream text */
   
-  /* Secondary: Darker curry leaf */
-  --color-secondary: oklch(55% 0.15 130); /* #689F38 - Darker green */
-  --color-secondary-content: oklch(100% 0 0); /* White text */
+  --color-primary: #ffa726;           /* Vibrant turmeric gold */
+  --color-primary-content: #1a120b;   /* Dark brown text */
   
-  /* Accent: Brighter chili red */
-  --color-accent: oklch(70% 0.25 15); /* #EF5350 - Brighter red */
-  --color-accent-content: oklch(100% 0 0); /* White text */
+  --color-secondary: #4caf50;         /* Rich curry leaf green */
+  --color-secondary-content: #ffffff; /* White text on secondary */
   
-  /* Neutral: Light cream for text */
-  --color-neutral: oklch(90% 0.02 45); /* #FFEEDD - Light cream */
-  --color-neutral-content: oklch(20% 0.05 45); /* Dark brown */
+  --color-accent: #f44336;            /* Bright chili red */
+  --color-accent-content: #ffffff;    /* White text on accent */
   
-  /* Base colors: Clay Pot Brown */
-  --color-base-100: oklch(15% 0.03 45); /* #1A120B - Clay Pot Brown */
-  --color-base-200: oklch(20% 0.04 40); /* #2E210B - Lighter brown */
-  --color-base-300: oklch(25% 0.05 35); /* Even lighter brown */
-  --color-base-content: oklch(90% 0.02 45); /* #FFEEDD - Light cream text */
+  --color-neutral: #4e342e;           /* Medium brown */
+  --color-neutral-content: #ffeedd;   /* Light cream text */
   
-  /* Semantic colors for dark theme */
-  --color-info: oklch(70% 0.15 220);
-  --color-info-content: oklch(100% 0 0);
-  --color-success: oklch(65% 0.15 140);
-  --color-success-content: oklch(100% 0 0);
-  --color-warning: oklch(80% 0.15 65);
-  --color-warning-content: oklch(20% 0.05 45);
-  --color-error: oklch(70% 0.25 15);
-  --color-error-content: oklch(100% 0 0);
+  --color-info: #42a5f5;              /* Bright blue */
+  --color-info-content: #ffffff;
+  
+  --color-success: #66bb6a;           /* Vibrant green */
+  --color-success-content: #ffffff;
+  
+  --color-warning: #ffb74d;           /* Bright orange */
+  --color-warning-content: #1a120b;
+  
+  --color-error: #ef5350;             /* Bright red */
+  --color-error-content: #ffffff;
 
-  /* Component styling */
+  /* Border radius */
   --radius-selector: 0.5rem;
   --radius-field: 0.375rem;
   --radius-box: 0.5rem;
+
+  /* Base sizes */
   --size-selector: 0.25rem;
   --size-field: 0.25rem;
+
+  /* Border size */
   --border: 1px;
+
+  /* Effects */
   --depth: 1;
   --noise: 0;
 }
 
-/* Configure daisyUI with both themes */
+/* Custom Sri Lankan Light Theme */
+@plugin "daisyui/theme" {
+  name: "manufood-light";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+
+  /* Light theme - Clean & Professional with Sri Lankan accents */
+  --color-base-100: #ffffff;          /* Pure white background */
+  --color-base-200: #faf9f7;          /* Very light warm cream */
+  --color-base-300: #f1efeb;          /* Light warm beige */
+  --color-base-content: #2d2926;      /* Dark brown text */
+  
+  --color-primary: #d97706;           /* Warm turmeric orange */
+  --color-primary-content: #ffffff;   /* White text on primary */
+  
+  --color-secondary: #16a34a;         /* Fresh curry leaf green */
+  --color-secondary-content: #ffffff; /* White text on secondary */
+  
+  --color-accent: #dc2626;            /* Warm chili red */
+  --color-accent-content: #ffffff;    /* White text on accent */
+  
+  --color-neutral: #e5e7eb;           /* Light gray */
+  --color-neutral-content: #374151;   /* Dark gray text */
+  
+  --color-info: #3b82f6;              /* Blue for info */
+  --color-info-content: #ffffff;
+  
+  --color-success: #10b981;           /* Green for success */
+  --color-success-content: #ffffff;
+  
+  --color-warning: #f59e0b;           /* Orange for warning */
+  --color-warning-content: #1f2937;
+  
+  --color-error: #ef4444;             /* Red for error */
+  --color-error-content: #ffffff;
+
+  /* Border radius */
+  --radius-selector: 0.5rem;
+  --radius-field: 0.375rem;
+  --radius-box: 0.5rem;
+
+  /* Base sizes */
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  /* Border size */
+  --border: 1px;
+
+  /* Effects */
+  --depth: 1;
+  --noise: 0;
+}
+
+
+/* Configure daisyUI with custom themes + built-in themes for testing */
 @plugin "daisyui" {
-  themes: manufood-light --default, manufood-dark --prefersdark;
+  themes: manufood-light --default, manufood-dark --prefersdark, light, dark, cupcake, synthwave;
   logs: true;
-}
-
-/* Minimal custom CSS - only what's absolutely necessary */
-
-/* Custom scrollbar using DaisyUI colors */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: oklch(var(--b2));
-}
-
-::-webkit-scrollbar-thumb {
-  background: oklch(var(--p));
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: oklch(var(--pf));
-}
-
-/* Focus styles using DaisyUI colors */
-button:focus,
-input:focus,
-a:focus {
-  outline: 2px solid oklch(var(--p));
-  outline-offset: 2px;
-}
-
-/* Custom animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
-}
-
-/* Skip to content link for accessibility */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 6px;
-  background: oklch(var(--p));
-  color: oklch(var(--pc));
-  padding: 8px;
-  text-decoration: none;
-  border-radius: 4px;
-  z-index: 100;
-}
-
-.skip-link:focus {
-  top: 6px;
-}
-
-/* Line clamp utility */
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* Gradient background utilities for maintaining the original gradient look */
-.bg-primary-gradient {
-  background: linear-gradient(135deg, oklch(var(--p)) 0%, oklch(var(--s)) 100%);
-}
-
-.bg-primary-gradient-dark {
-  background: linear-gradient(135deg, oklch(var(--p)) 0%, oklch(var(--a)) 100%);
-}
-
-/* Hover effects with traditional colors */
-.hover-turmeric:hover {
-  background-color: oklch(var(--p) / 0.15);
 }

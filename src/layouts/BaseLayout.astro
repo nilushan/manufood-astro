@@ -9,7 +9,7 @@ const { title, description } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description || "Authentic Sri Lankan Home Cooked Meals in Yarrabilba"} />
@@ -17,6 +17,9 @@ const { title, description } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    
+    <!-- Theme initialization script - runs before page render to prevent flash -->
+    <script src="/theme-init.js" is:inline></script>
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
