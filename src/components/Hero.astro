@@ -4,9 +4,9 @@ import siteData from '../content/site.json';
 import { images } from '../lib/images';
 ---
 
-<div class="hero bg-gradient-to-br from-primary to-primary-focus text-primary-content min-h-screen pt-16">
+<div class="hero bg-gradient-to-br from-primary to-base-300 text-base-content min-h-screen pt-16">
   <div class="hero-content text-center">
-    <div class="max-w-md">
+    <div class="max-w-4xl">
       <h1 class="text-5xl font-bold mb-5">{siteData.name}</h1>
       <p class="text-xl mb-8 opacity-90">{siteData.tagline}</p>
       
@@ -15,28 +15,16 @@ import { images } from '../lib/images';
           src={images['hero-food']}
           alt="Authentic Sri Lankan food spread with rice, curries, and side dishes"
           class="rounded-lg shadow-2xl"
-          width={800}
-          height={600}
+          width={1800}
+          height={1600}
           format="webp"
           quality={90}
           loading="eager"
         />
       </div>
       
-      <p class="text-lg opacity-80 max-w-xl">{siteData.description}</p>
+      <div class="text-lg text-center opacity-80 max-w-4xl">{siteData.description}</div>
     </div>
   </div>
 </div>
 
-<style>
-  .hero-image-container {
-    max-width: 100%;
-    margin: 0 auto;
-  }
-  
-  @media (max-width: 768px) {
-    .hero-image-container {
-      margin: 0 1rem;
-    }
-  }
-</style>
