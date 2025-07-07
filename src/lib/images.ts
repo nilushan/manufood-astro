@@ -24,6 +24,20 @@ import bananaflower_curry_22022025 from '@images/22022025/bananaflower_curry.jpg
 import breadfruit_mallum_22022025 from '@images/22022025/breadfruit_mallum.jpg';
 import snakegourde_mallum_22022025 from '@images/22022025/snakegourde_mallum.jpg';
 
+// June 21, 2025 gallery
+import chicken_biriyani_21062025 from '@images/21062025/Chicken biriyani with raita.JPG';
+import beef_potato_stir_fry_21062025 from '@images/21062025/beef and potato stir fry.JPG';
+import black_pork_curry_21062025 from '@images/21062025/black pork curry.jpg';
+import wadde_coconut_sauce_21062025 from '@images/21062025/wadde with coconut sauce.jpg';
+
+// June 28, 2025 gallery
+import beef_cabbage_curry_28062025 from '@images/28062025/beef with cabbage curry.jpg';
+import chicken_lumprice_28062025 from '@images/28062025/chicken lumprice.jpeg';
+import dried_fish_curry_28062025 from '@images/28062025/dried fish curry.jpeg';
+import eggplant_ash_plantain_curry_28062025 from '@images/28062025/eggplant and ash plantain curry.jpg';
+import pork_devilled_28062025 from '@images/28062025/pork devilled.jpeg';
+import spiny_gourd_curry_28062025 from '@images/28062025/spiny gourd curry.jpg';
+
 export const images = {
   // Hero and main images
   'hero-food': heroFood,
@@ -50,6 +64,20 @@ export const images = {
   '22022025/bananaflower_curry': bananaflower_curry_22022025,
   '22022025/breadfruit_mallum': breadfruit_mallum_22022025,
   '22022025/snakegourde_mallum': snakegourde_mallum_22022025,
+
+  // June 21, 2025 gallery
+  '21062025/chicken biriyani with raita': chicken_biriyani_21062025,
+  '21062025/beef and potato stir fry': beef_potato_stir_fry_21062025,
+  '21062025/black pork curry': black_pork_curry_21062025,
+  '21062025/wadde with coconut sauce': wadde_coconut_sauce_21062025,
+
+  // June 28, 2025 gallery
+  '28062025/beef with cabbage curry': beef_cabbage_curry_28062025,
+  '28062025/chicken lumprice': chicken_lumprice_28062025,
+  '28062025/dried fish curry': dried_fish_curry_28062025,
+  '28062025/eggplant and ash plantain curry': eggplant_ash_plantain_curry_28062025,
+  '28062025/pork devilled': pork_devilled_28062025,
+  '28062025/spiny gourd curry': spiny_gourd_curry_28062025,
 };
 
 export const getImage = (imagePath: string) => {

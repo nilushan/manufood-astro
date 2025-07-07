@@ -79,6 +79,66 @@
           "image": "22022025/breadfruit_mallum"
         }
       ]
+    },
+    {
+      "date": "June 21, 2025",
+      "dishes": [
+        {
+          "name": "Chicken Biriyani with Raita",
+          "description": "Aromatic chicken biriyani served with cooling raita",
+          "image": "21062025/chicken biriyani with raita"
+        },
+        {
+          "name": "Beef and Potato Stir Fry",
+          "description": "Tender beef stir-fried with potatoes and spices",
+          "image": "21062025/beef and potato stir fry"
+        },
+        {
+          "name": "Black Pork Curry",
+          "description": "Rich and flavorful black pork curry with traditional spices",
+          "image": "21062025/black pork curry"
+        },
+        {
+          "name": "Wadde with Coconut Sauce",
+          "description": "Traditional Sri Lankan lentil fritters served with coconut sauce",
+          "image": "21062025/wadde with coconut sauce"
+        }
+      ]
+    },
+    {
+      "date": "June 28, 2025",
+      "dishes": [
+        {
+          "name": "Beef with Cabbage Curry",
+          "description": "Tender beef cooked with fresh cabbage in aromatic spices",
+          "image": "28062025/beef with cabbage curry"
+        },
+        {
+          "name": "Chicken Lump Rice",
+          "description": "Traditional Sri Lankan chicken lump rice",
+          "image": "28062025/chicken lumprice"
+        },
+        {
+          "name": "Dried Fish Curry",
+          "description": "Authentic dried fish curry with coconut and spices",
+          "image": "28062025/dried fish curry"
+        },
+        {
+          "name": "Eggplant and Ash Plantain Curry",
+          "description": "Mixed vegetable curry with eggplant and ash plantain",
+          "image": "28062025/eggplant and ash plantain curry"
+        },
+        {
+          "name": "Pork Devilled",
+          "description": "Spicy and tangy pork devilled with bell peppers",
+          "image": "28062025/pork devilled"
+        },
+        {
+          "name": "Spiny Gourd Curry",
+          "description": "Traditional spiny gourd curry with coconut milk",
+          "image": "28062025/spiny gourd curry"
+        }
+      ]
     }
   ]
 }
